@@ -1,0 +1,13 @@
+//
+//  get.swift
+//  QobuzKit
+//
+//  Created by Markus Rosenhave on 16/02/2025.
+//
+
+
+extension QobuzAPI {
+  func get() {
+    //TODO: Fill Out
+  }
+}
