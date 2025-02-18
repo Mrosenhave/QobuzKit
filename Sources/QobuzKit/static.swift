@@ -1,5 +1,5 @@
 //
-//  statics.swift
+//  static.swift
 //  QobuzKit
 //
 //  Created by Markus Rosenhave on 16/02/2025.

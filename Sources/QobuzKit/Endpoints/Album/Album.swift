@@ -21,13 +21,7 @@ extension QobuzAPI.Endpoints {
 
     var path: String { "album/get" }
 
-    var method: QobuzAPI.HTTPMethod { .get }
-
-    var requiresAuth: Bool { false }
-
     var parameters: [String: Any] { ["album_id": albumId] }
-
-    var body: Data? { nil }
 
     let albumId: String
 

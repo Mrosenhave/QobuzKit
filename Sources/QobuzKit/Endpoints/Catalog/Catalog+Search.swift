@@ -20,13 +20,8 @@ extension QobuzAPI.Endpoints {
 
     var path: String { "catalog/search" }
 
-    var method: QobuzAPI.HTTPMethod { .get }
-
-    var requiresAuth: Bool { false }
-
     var parameters: [String: Any] { ["query": query, "type": type?.rawValue] }
 
-    var body: Data? { nil }
 
     let query: String
 

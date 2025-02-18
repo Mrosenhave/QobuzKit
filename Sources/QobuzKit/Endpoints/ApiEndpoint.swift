@@ -14,6 +14,16 @@ extension QobuzAPI {
     var method: HTTPMethod { get }
     var requiresAuth: Bool { get }
     var parameters: [String: Any] { get }
-    
+    var body: Data? { get }  // For POST request data
+
+    func constructURL() -> URL?
   }
+}
+
+extension QobuzAPI.ApiEndpoint {
+  //Default Values
+  var method: QobuzAPI.HTTPMethod { .get }
+  var requiresAuth: Bool { false }
+  
+  var body: Data? { nil }
 }

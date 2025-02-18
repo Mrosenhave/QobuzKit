@@ -1,24 +1,25 @@
 //
-//  SwiftBuzSpoof+getContentsOfUrl.swift
+//  Client+getContentsOfUrl.swift
 //
 //
-//  Created by Markus Rosenhave on 08/08/2024.
+//  Created by Markus Rosenhave on 18/02/2025.
 //
 
 import Foundation
 
-@available(iOS 16.0, macOS 13, *)
-extension Spoofer {
-    func getContentsOfUrl(from url: URL) async throws -> String {
+extension QobuzClient {
+    func getContentsOfUrl(from url: URL) async -> String? {
         // Create a URL request
         let request = URLRequest(url: url)
         
         // Use URLSession to fetch data asynchronously
-        let (data, _) = try await URLSession.shared.data(for: request)
+      guard let (data, _) = try? await URLSession.shared.data(for: request) else {
+        return nil
+      }
         
         // Convert the data to a String and return it
         guard let pageContent = String(data: data, encoding: .utf8) else {
-            throw URLError(.badServerResponse)
+            return nil
         }
         
         return pageContent

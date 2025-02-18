@@ -3,4 +3,8 @@
 
 import Foundation
 
-struct QobuzAPI {}
+public struct QobuzAPI {}
+
+public struct QobuzClient {
+  public init() {}
+}

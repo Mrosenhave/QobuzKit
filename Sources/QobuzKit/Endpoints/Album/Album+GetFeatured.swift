@@ -20,18 +20,12 @@ extension QobuzAPI.Endpoints {
 
     var path: String { "album/getFeatured" }
 
-    var method: QobuzAPI.HTTPMethod { .get }
-
-    var requiresAuth: Bool { false }
-
     var parameters: [String: Any] {
       [
         "type": type?.rawValue,
         "genre_id": genreId,
       ]
     }
-
-    var body: Data? { nil }
 
     let type: featuredType?
 
