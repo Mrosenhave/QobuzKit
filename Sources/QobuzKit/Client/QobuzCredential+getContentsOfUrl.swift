@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension QobuzClient {
+extension QobuzCredential {
     func getContentsOfUrl(from url: URL) async -> String? {
         // Create a URL request
         let request = URLRequest(url: url)

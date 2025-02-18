@@ -6,8 +6,8 @@
 //
 
 extension QobuzAPI {
-  enum HTTPMethod {
-    case get
-    case post
+  enum HTTPMethod: String {
+    case get = "GET"
+    case post = "POST"
   }
 }

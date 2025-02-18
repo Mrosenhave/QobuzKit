@@ -8,7 +8,7 @@
 import Foundation
 import RegexBuilder
 
-extension QobuzClient {
+extension QobuzCredential {
   public func getBundle() async -> String? {
     // get site data
     guard let loginURL = URL(string: "https://play.qobuz.com/login") else {

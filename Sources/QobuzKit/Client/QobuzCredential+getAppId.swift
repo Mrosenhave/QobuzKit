@@ -7,7 +7,7 @@
 
 import Foundation
 import RegexBuilder
-extension QobuzClient {
+extension QobuzCredential {
   public func getAppId(_ bundle: String) -> String? {
       let appIdRef = Reference(Int.self)
       let appSecretRef = Reference(String.self)

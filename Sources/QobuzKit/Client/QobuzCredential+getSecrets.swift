@@ -8,7 +8,7 @@
 import Foundation
 import RegexBuilder
 
-extension QobuzClient {
+extension QobuzCredential {
   public func getSecrets(_ bundle: String) -> [String]? {
       let seed = Reference(Substring.self)
       let timezone = Reference(Substring.self)
