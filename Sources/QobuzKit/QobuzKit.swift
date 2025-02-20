@@ -6,7 +6,7 @@ import Foundation
 public struct QobuzAPI {}
 
 public class QobuzClient:ObservableObject {
-  @MainActor static let shared = QobuzClient (appId: "", appSecret: "")
+  @MainActor public static let shared = QobuzClient (appId: "", appSecret: "")
   public init(appId: String, appSecret: String) {
     self.appId = appId
     self.appSecret = appSecret
