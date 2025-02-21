@@ -8,11 +8,9 @@
 import Foundation
 
 extension QobuzAPI {
-  protocol ApiEndpoint {
+  protocol Endpoint {
     associatedtype Response: Decodable
     var path: String { get }
-    var method: HTTPMethod { get }
-    var requiresAuth: Bool { get }
     var parameters: [String: Any] { get }
     var body: Data? { get }  // For POST request data
 
@@ -20,10 +18,7 @@ extension QobuzAPI {
   }
 }
 
-extension QobuzAPI.ApiEndpoint {
+extension QobuzAPI.Endpoint {
   //Default Values
-  var method: QobuzAPI.HTTPMethod { .get }
-  var requiresAuth: Bool { false }
-  
   var body: Data? { nil }
 }
