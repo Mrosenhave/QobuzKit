@@ -3,9 +3,7 @@
 
 import Foundation
 
-public struct QobuzAPI {
-  //MARK: Endpoints here
-  enum Endpoints {}
+public final class QobuzAPI {
 }
 
 public class QobuzClient:ObservableObject {

@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct QBHasMoreItems<T: Codable>: Codable {
-    let type: QBReleaseType?
-    let hasMore: Bool
-    let items: [T]
+public struct QBHasMoreItems<T: Codable>: Codable {
+    public let type: QBReleaseType?
+    public let hasMore: Bool
+    public let items: [T]
     
     enum CodingKeys: String, CodingKey {
         case type

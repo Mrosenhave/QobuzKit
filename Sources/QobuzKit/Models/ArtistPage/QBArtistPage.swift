@@ -7,16 +7,16 @@
 
 import Foundation
 
-struct QBArtistPage: Codable {
-  let id: Int
-  let name: QBArtistPageName
-  let biography: QBArtistPageBiography?
-  let images: QBArtistImage?
-  let similarArtists: QBHasMoreItems<QBArtistPageArtist>
-  let topTracks: [QBArtistTopTrack]
-  let lastRelease: QBArtistRelease?
-  let releases: [QBHasMoreItems<QBArtistRelease>]
-  let playlists: QBHasMoreItems<QBPlaylist>
+public struct QBArtistPage: Codable {
+  public let id: Int
+  public let name: QBArtistPageName
+  public let biography: QBArtistPageBiography?
+  public let images: QBArtistImage?
+  public let similarArtists: QBHasMoreItems<QBArtistPageArtist>
+  public let topTracks: [QBArtistTopTrack]
+  public let lastRelease: QBArtistRelease?
+  public let releases: [QBHasMoreItems<QBArtistRelease>]
+  public let playlists: QBHasMoreItems<QBPlaylist>
   
   enum CodingKeys: String, CodingKey {
     case id
@@ -32,7 +32,7 @@ struct QBArtistPage: Codable {
 }
 
 extension QBArtistPage {
-  init(from decoder: Decoder) throws {
+  public init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)
     
     id = try container.decode(Int.self, forKey: .id)
@@ -53,7 +53,7 @@ extension QBArtistPage {
     playlists = try container.decode(QBHasMoreItems<QBPlaylist>.self, forKey: .playlists)
   }
   
-  func encode(to encoder: Encoder) throws {
+  public func encode(to encoder: Encoder) throws {
     var container = encoder.container(keyedBy: CodingKeys.self)
     
     try container.encode(id, forKey: .id)
@@ -62,7 +62,7 @@ extension QBArtistPage {
     
     //            if let images = images {
     //                // Convert QBArtistImage to QBArtistPageImagesPortrait for encoding
-    //                let imagesPortrait = QBArtistPageImagesPortrait(hash: images.large, format: "jpg")
+    //                public let imagesPortrait = QBArtistPageImagesPortrait(hash: images.large, format: "jpg")
     //                try container.encode(imagesPortrait, forKey: .images)
     //            } else {
     //                try container.encodeNil(forKey: .images)
@@ -78,40 +78,40 @@ extension QBArtistPage {
 }
 
 // MARK: - ArtistPageName
-struct QBArtistPageName: Codable {
-  let display: String
+public struct QBArtistPageName: Codable {
+  public let display: String
 }
 // MARK: - ArtistPageBiography
-struct QBArtistPageBiography: Codable {
-  let content: String
+public struct QBArtistPageBiography: Codable {
+  public let content: String
 }
 // MARK: - ArtistPageImages
-struct QBArtistPageImages: Codable {
-  let portrait: QBArtistImageHashFormat?
+public struct QBArtistPageImages: Codable {
+  public let portrait: QBArtistImageHashFormat?
   
 }
 // MARK: - ArtistPageImagesPortrait
-struct QBArtistImageHashFormat: Codable {
-  let id: Int?
-  let hash: String
-  let format: String
+public struct QBArtistImageHashFormat: Codable {
+  public let id: Int?
+  public let hash: String
+  public let format: String
 }
 
 // MARK: - Item
-struct QBArtistPageArtist: Codable, Hashable {
-  let id: Int
-  let name: QBArtistPageName
-  let images: QBArtistImage?
+public struct QBArtistPageArtist: Codable, Hashable {
+  public let id: Int
+  public let name: QBArtistPageName
+  public let images: QBArtistImage?
 }
 extension QBArtistPageArtist {
-  static func == (lhs: QBArtistPageArtist, rhs: QBArtistPageArtist) -> Bool {
+  public static func == (lhs: QBArtistPageArtist, rhs: QBArtistPageArtist) -> Bool {
     return lhs.id == rhs.id
   }
   
-  func hash(into hasher: inout Hasher) {
+  public func hash(into hasher: inout Hasher) {
     hasher.combine(id)
   }
-  init(from decoder: Decoder) throws {
+  public init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)
     
     id = try container.decode(Int.self, forKey: .id)

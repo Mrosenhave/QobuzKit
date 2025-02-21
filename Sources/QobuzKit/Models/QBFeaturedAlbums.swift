@@ -7,20 +7,20 @@
 
 import Foundation
 
-struct QBFeaturedAlbums: Codable {
-    let containers: Containers?
+public struct QBFeaturedAlbums: Codable {
+    public let containers: Containers?
     
     enum CodingKeys: String, CodingKey {
         case containers
     }
 }
 
-struct Containers: Codable {
-    let containerAlbumNewReleasesFull: Container
-    let containerAlbumRecentReleases: Container
-    let containerAlbumPressAwards: Container
-    let containerAlbumCharts: Container
-    let containerAlbumOfTheWeek: Container
+public struct Containers: Codable {
+    public let containerAlbumNewReleasesFull: Container
+    public let containerAlbumRecentReleases: Container
+    public let containerAlbumPressAwards: Container
+    public let containerAlbumCharts: Container
+    public let containerAlbumOfTheWeek: Container
     
     enum CodingKeys: String, CodingKey {
         case containerAlbumNewReleasesFull = "container-album-new-releases-full"
@@ -31,10 +31,10 @@ struct Containers: Codable {
     }
 }
 
-struct Container: Codable {
-    let label: String
-    let baseline: String
-    let albums: QBItems<QBAlbum>
+public struct Container: Codable {
+    public let label: String
+    public let baseline: String
+    public let albums: QBItems<QBAlbum>
     
     enum CodingKeys: String, CodingKey {
         case label

@@ -7,16 +7,16 @@
 
 import Foundation
 
-struct QBDates: Codable {
-    let download: Date?
-    let original: Date
-    let purchase: Date?
-    let stream: Date?
+public struct QBDates: Codable {
+    public let download: Date?
+    public let original: Date
+    public let purchase: Date?
+    public let stream: Date?
 }
 
 extension QBDates {
-    // Custom initializer to handle date string decoding
-    init(from decoder: Decoder) throws {
+    // Custom public initializer to handle date string decoding
+    public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let dateStringFormatter = DateFormatter()
         dateStringFormatter.dateFormat = "yyyy-MM-dd"
@@ -41,7 +41,7 @@ extension QBDates {
     }
     
     // Custom encoding for date objects
-    func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         let dateStringFormatter = DateFormatter()
         dateStringFormatter.dateFormat = "yyyy-MM-dd"

@@ -7,8 +7,12 @@
 
 import Foundation
 
-struct QBArtistIds: Encodable {
-  let artistIds: [String]
+public struct QBArtistIds: Encodable {
+  public init(artistIds: [String]) {
+    self.artistIds = artistIds
+  }
+  
+  public let artistIds: [String]
   
   enum CodingKeys: String, CodingKey {
     case artistIds = "artist_ids"

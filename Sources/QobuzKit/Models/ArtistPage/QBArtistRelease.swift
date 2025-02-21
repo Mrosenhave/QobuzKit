@@ -8,23 +8,23 @@
 import Foundation
 
 // MARK: - Release
-struct QBArtistRelease: Codable, Hashable {
-    let id, title: String
-    let version: String?
-//    let tracksCount: Int
-    let artist: QBArtistPageArtist
-//    let artists: [ArtistElement]
-    let image: QBImages
-//    let label: Label
-//    let genre: Genre
-    let releaseType: QBReleaseType
-//    let releaseTags: [String]
-    let duration: Int
-    let dates: QBDates
-    let parentalWarning: Bool
-//    let audioInfo: AudioInfo
-//    let rights: LastReleaseRights
-//    let description: String?
+public struct QBArtistRelease: Codable, Hashable {
+    public let id, title: String
+    public let version: String?
+//    public let tracksCount: Int
+    public let artist: QBArtistPageArtist
+//    public let artists: [ArtistElement]
+    public let image: QBImages
+//    public let label: Label
+//    public let genre: Genre
+    public let releaseType: QBReleaseType
+//    public let releaseTags: [String]
+    public let duration: Int
+    public let dates: QBDates
+    public let parentalWarning: Bool
+//    public let audioInfo: AudioInfo
+//    public let rights: LastReleaseRights
+//    public let description: String?
 
     enum CodingKeys: String, CodingKey {
         case id, title, version
@@ -40,10 +40,10 @@ struct QBArtistRelease: Codable, Hashable {
     }
 }
 extension QBArtistRelease {
-    static func == (lhs: QBArtistRelease, rhs: QBArtistRelease) -> Bool {
+  public static func == (lhs: QBArtistRelease, rhs: QBArtistRelease) -> Bool {
         return lhs.id == rhs.id
     }
-    func hash(into hasher: inout Hasher) {
+  public func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
 }

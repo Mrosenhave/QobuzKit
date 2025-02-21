@@ -7,10 +7,10 @@
 
 import Foundation
 
-//struct QBAward: Codable {
-//    let id: Int?
-//    let name: String
-//    let awardedAt: String?
+//public struct QBAward: Codable {
+//    public let id: Int?
+//    public let name: String
+//    public let awardedAt: String?
 //
 //    enum CodingKeys: String, CodingKey {
 //        case id
@@ -20,15 +20,15 @@ import Foundation
 //}
 
 
-struct QBAward: Codable {
-    let name: String
-    //    let slug: String
-    //    let awardSlug: String
-    let awardedAt: Date?
-    let awardId: Int?
-    //    let publicationId: String?
-    //    let publicationName: String?
-    //    let publicationSlug: String?
+public struct QBAward: Codable {
+    public let name: String
+    //    public let slug: String
+    //    public let awardSlug: String
+    public let awardedAt: Date?
+    public let awardId: Int?
+    //    public let publicationId: String?
+    //    public let publicationName: String?
+    //    public let publicationSlug: String?
     
     enum CodingKeys: String, CodingKey {
         case id, name, slug, awardSlug, awardedAt
@@ -41,7 +41,7 @@ struct QBAward: Codable {
 }
 
 extension QBAward {
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         name = try container.decode(String.self, forKey: .name)
@@ -68,7 +68,7 @@ extension QBAward {
         //        publicationName = try? container.decode(String.self, forKey: .publicationName)
         //        publicationSlug = try? container.decode(String.self, forKey: .publicationSlug)
     }
-    func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         
         try container.encode(name, forKey: .name)

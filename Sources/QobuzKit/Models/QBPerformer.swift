@@ -7,11 +7,25 @@
 
 import Foundation
 
-struct QBPerformer: Codable, Hashable {
-  let id: Int
-  let name: String
-  let images: QBArtistImage?
+public struct QBPerformer: Codable, Hashable {
+  public init(id: Int, name: String, images: QBArtistImage? = nil) {
+    self.id = id
+    self.name = name
+    self.images = images
+  }
   
+  public static func == (lhs: QBPerformer, rhs: QBPerformer) -> Bool {
+    return lhs.id == rhs.id && rhs.name == lhs.name && rhs.images == lhs.images
+  }
+
+  public func hash(into hasher: inout Hasher) {
+    hasher.combine(id)
+  }
+  
+  public let id: Int
+  public let name: String
+  public let images: QBArtistImage?
+
   enum CodingKeys: String, CodingKey {
     case id
     case name
@@ -20,24 +34,18 @@ struct QBPerformer: Codable, Hashable {
 }
 
 extension QBPerformer {
-  static func == (lhs: QBPerformer, rhs: QBPerformer) -> Bool {
-    return lhs.id == rhs.id && rhs.name == lhs.name && rhs.images == lhs.images
-}
-
-func hash(into hasher: inout Hasher) {
-  hasher.combine(id)
-}
-  init(from decoder: Decoder) throws {
+  public init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)
-    
+
     id = try container.decode(Int.self, forKey: .id)
     name = try container.decode(String.self, forKey: .name)
-    
-    let imagesPortrait = try container.decodeIfPresent(QBArtistPageImages.self, forKey: .images)?.portrait
+
+    let imagesPortrait = try container.decodeIfPresent(
+      QBArtistPageImages.self, forKey: .images)?.portrait
     if let hash = imagesPortrait?.hash, let format = imagesPortrait?.format {
       self.images = hashStringToImageModel(hash: hash, format: format)
     } else {
-      self.images = nil // Provide a default value if necessary
+      self.images = nil  // Provide a default value if necessary
     }
   }
 }

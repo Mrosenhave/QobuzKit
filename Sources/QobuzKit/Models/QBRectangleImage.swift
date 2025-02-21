@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct QBRectangleImage: Codable {
-    let rectangle: String
+public struct QBRectangleImage: Codable {
+    public let rectangle: String
     
     enum CodingKeys: String, CodingKey {
         case rectangle
@@ -16,7 +16,7 @@ struct QBRectangleImage: Codable {
 }
 
 extension QBRectangleImage {
-  init(from decoder: Decoder) throws {
+  public init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)
     if let string = try? container.decode(String.self, forKey: .rectangle) {
       rectangle = string

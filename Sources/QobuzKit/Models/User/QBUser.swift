@@ -7,27 +7,27 @@
 
 import Foundation
 
-struct QBUser: Codable {
-    let id: Int
-    let publicID: String
-    let email: String
-    let login: String
-    let firstname: String?
-    let lastname: String?
-    let displayName: String?
-    let countryCode: String
-    let languageCode: String
-    let zone: String
-    let store: String
-    let country: String
-    let avatar: String
-    let genre: String?
-    let age: Int
-    let creationDate: String
-    let subscription: QBSubscription?
-    let credential: QBCredential
-    let lastUpdate: QBLastUpdate
-    let storeFeatures: QBStoreFeatures
+public struct QBUser: Codable {
+    public let id: Int
+    public let publicID: String
+    public let email: String
+    public let login: String
+    public let firstname: String?
+    public let lastname: String?
+    public let displayName: String?
+    public let countryCode: String
+    public let languageCode: String
+    public let zone: String
+    public let store: String
+    public let country: String
+    public let avatar: String
+    public let genre: String?
+    public let age: Int
+    public let creationDate: String
+    public let subscription: QBSubscription?
+    public let credential: QBCredential
+    public let lastUpdate: QBLastUpdate
+    public let storeFeatures: QBStoreFeatures
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -43,7 +43,7 @@ struct QBUser: Codable {
         case storeFeatures = "store_features"
     }
     
-//    init(id: Int, publicID: String, email: String, login: String, firstname: String?, lastname: String?, displayName: String, countryCode: String, languageCode: String, zone: String, store: String, country: String, avatar: String, genre: String?, age: Int, creationDate: String, subscription: QBSubscription, credential: QBCredential, lastUpdate: QBLastUpdate, storeFeatures: QBStoreFeatures) {
+//    public init(id: Int, publicID: String, email: String, login: String, firstname: String?, lastname: String?, displayName: String, countryCode: String, languageCode: String, zone: String, store: String, country: String, avatar: String, genre: String?, age: Int, creationDate: String, subscription: QBSubscription, credential: QBCredential, lastUpdate: QBLastUpdate, storeFeatures: QBStoreFeatures) {
 //        self.id = id
 //        self.publicID = publicID
 //        self.email = email
@@ -68,11 +68,11 @@ struct QBUser: Codable {
 }
 
 // MARK: - Credential
-struct QBCredential: Codable {
-    let id: Int?
-    let label: String?
-    let credentialDescription: String
-    let parameters: QBParameters?
+public struct QBCredential: Codable {
+    public let id: Int?
+    public let label: String?
+    public let credentialDescription: String
+    public let parameters: QBParameters?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -84,19 +84,19 @@ struct QBCredential: Codable {
 
 
 // MARK: - Parameters
-struct QBParameters: Codable {
+public struct QBParameters: Codable {
     
-    let lossyStreaming: Bool
-    let losslessStreaming: Bool
-    let hiresStreaming: Bool
-    let hiresPurchasesStreaming: Bool
-    let mobileStreaming: Bool
-    let offlineStreaming: Bool
-    let hfpPurchase: Bool
-    let includedFormatGroupIDS: [Int]
-    let label: String
-    let shortLabel: String
-    let source: String
+    public let lossyStreaming: Bool
+    public let losslessStreaming: Bool
+    public let hiresStreaming: Bool
+    public let hiresPurchasesStreaming: Bool
+    public let mobileStreaming: Bool
+    public let offlineStreaming: Bool
+    public let hfpPurchase: Bool
+    public let includedFormatGroupIDS: [Int]
+    public let label: String
+    public let shortLabel: String
+    public let source: String
     
     enum CodingKeys: String, CodingKey {
         case lossyStreaming = "lossy_streaming"
@@ -114,13 +114,13 @@ struct QBParameters: Codable {
 }
 
 // MARK: - LastUpdate
-struct QBLastUpdate: Codable {
-    let favorite: Int
-    let favoriteAlbum: Int
-    let favoriteArtist: Int
-    let favoriteTrack: Int
-    let playlist: Int
-    let purchase: Int
+public struct QBLastUpdate: Codable {
+    public let favorite: Int
+    public let favoriteAlbum: Int
+    public let favoriteArtist: Int
+    public let favoriteTrack: Int
+    public let playlist: Int
+    public let purchase: Int
     
     enum CodingKeys: String, CodingKey {
         case favorite
@@ -132,17 +132,17 @@ struct QBLastUpdate: Codable {
 }
 
 // MARK: - StoreFeatures
-struct QBStoreFeatures: Codable {
-    let download: Bool
-    let streaming: Bool
-    let editorial: Bool
-    let club: Bool
-    let wallet: Bool
-    let weeklyq: Bool
-    let autoplay: Bool
-    let inappPurchaseSubscripton: Bool
-    let optIn: Bool
-    let musicImport: Bool
+public struct QBStoreFeatures: Codable {
+    public let download: Bool
+    public let streaming: Bool
+    public let editorial: Bool
+    public let club: Bool
+    public let wallet: Bool
+    public let weeklyq: Bool
+    public let autoplay: Bool
+    public let inappPurchaseSubscripton: Bool
+    public let optIn: Bool
+    public let musicImport: Bool
     
     enum CodingKeys: String, CodingKey {
         case download, streaming, editorial, club, wallet, weeklyq, autoplay
@@ -153,13 +153,13 @@ struct QBStoreFeatures: Codable {
 }
 
 // MARK: - Subscription
-struct QBSubscription: Codable {
-    let offer: String
-    let periodicity: String
-    let startDate: String
-    let endDate: String
-    let isCanceled: Bool
-    let householdSizeMax: Int
+public struct QBSubscription: Codable {
+    public let offer: String
+    public let periodicity: String
+    public let startDate: String
+    public let endDate: String
+    public let isCanceled: Bool
+    public let householdSizeMax: Int
     
     enum CodingKeys: String, CodingKey {
         case offer, periodicity

@@ -7,42 +7,72 @@
 
 import Foundation
 
-struct QBTrack: Codable, Hashable, QBContent {
-    static func == (lhs: QBTrack, rhs: QBTrack) -> Bool {
+public struct QBTrack: Codable, Hashable, QBContent {
+  public init(maximumBitDepth: Int, copyright: String? = nil, performers: [String: [String]]? = nil, audioInfo: QBAudioInfo, performer: QBPerformer? = nil, album: QBAlbum? = nil, isrc: String, title: String, version: String? = nil, duration: Int, parentalWarning: Bool, trackNumber: Int? = nil, maximumChannelCount: Int, id: Int, maximumSamplingRate: Double, releaseDateOriginal: String? = nil, purchasable: Bool, streamable: Bool, previewable: Bool, sampleable: Bool, downloadable: Bool, streamableAt: Int? = nil, hires: Bool, hiresStreamable: Bool, favoritedAt: Int? = nil, position: Int? = nil, playlistTrackId: Int? = nil) {
+    self.maximumBitDepth = maximumBitDepth
+    self.copyright = copyright
+    self.performers = performers
+    self.audioInfo = audioInfo
+    self.performer = performer
+    self.album = album
+    self.isrc = isrc
+    self.title = title
+    self.version = version
+    self.duration = duration
+    self.parentalWarning = parentalWarning
+    self.trackNumber = trackNumber
+    self.maximumChannelCount = maximumChannelCount
+    self.id = id
+    self.maximumSamplingRate = maximumSamplingRate
+    self.releaseDateOriginal = releaseDateOriginal
+    self.purchasable = purchasable
+    self.streamable = streamable
+    self.previewable = previewable
+    self.sampleable = sampleable
+    self.downloadable = downloadable
+    self.streamableAt = streamableAt
+    self.hires = hires
+    self.hiresStreamable = hiresStreamable
+    self.favoritedAt = favoritedAt
+    self.position = position
+    self.playlistTrackId = playlistTrackId
+  }
+  
+  public static func == (lhs: QBTrack, rhs: QBTrack) -> Bool {
         return lhs.id == rhs.id
     }
     
-    func hash(into hasher: inout Hasher) {
+  public func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
     
-    let maximumBitDepth: Int
-    let copyright: String?
-    let performers: [QBCreditsPerformer]?
-    let audioInfo: QBAudioInfo
-    let performer: QBPerformer?
-    let album: QBAlbum?
-    let isrc: String
-    let title: String
-    let version: String?
-    let duration: Int
-    let parentalWarning: Bool
-    let trackNumber: Int? // does not appear in WeeklyQ
-    let maximumChannelCount: Int
-    let id: Int
-    let maximumSamplingRate: Double
-    let releaseDateOriginal: String?
-    let purchasable: Bool
-    let streamable: Bool
-    let previewable: Bool
-    let sampleable: Bool
-    let downloadable: Bool
-    let streamableAt: Int?
-    let hires: Bool
-    let hiresStreamable: Bool
-    var favoritedAt: Int?
-    var position: Int?
-    var playlistTrackId: Int?
+    public let maximumBitDepth: Int
+    public let copyright: String?
+  public let performers: [String: [String]]?
+    public let audioInfo: QBAudioInfo
+    public let performer: QBPerformer?
+    public let album: QBAlbum?
+    public let isrc: String
+    public let title: String
+    public let version: String?
+    public let duration: Int
+    public let parentalWarning: Bool
+    public let trackNumber: Int? // does not appear in WeeklyQ
+    public let maximumChannelCount: Int
+    public let id: Int
+    public let maximumSamplingRate: Double
+    public let releaseDateOriginal: String?
+    public let purchasable: Bool
+    public let streamable: Bool
+    public let previewable: Bool
+    public let sampleable: Bool
+    public let downloadable: Bool
+    public let streamableAt: Int?
+    public let hires: Bool
+    public let hiresStreamable: Bool
+    public var favoritedAt: Int?
+    public var position: Int?
+    public var playlistTrackId: Int?
     
     enum CodingKeys: String, CodingKey {
         case maximumBitDepth = "maximum_bit_depth"
@@ -76,7 +106,7 @@ struct QBTrack: Codable, Hashable, QBContent {
 }
 
 extension QBTrack {
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         maximumBitDepth = try container.decode(Int.self, forKey: .maximumBitDepth)

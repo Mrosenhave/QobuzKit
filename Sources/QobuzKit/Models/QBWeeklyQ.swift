@@ -8,13 +8,13 @@
 import Foundation
 
 // MARK: - WeeklyQ
-struct QBWeeklyQ: Codable {
-    let title, baseline, description, type: String
-    let stepPagination: Int
-    let images: QBImages
-    let graphics: QBGraphics
-    let duration, generatedAt, expiresOn, trackCount: Int
-    let tracks: QBItems<QBTrack>
+public struct QBWeeklyQ: Codable {
+    public let title, baseline, description, type: String
+    public let stepPagination: Int
+    public let images: QBImages
+    public let graphics: QBGraphics
+    public let duration, generatedAt, expiresOn, trackCount: Int
+    public let tracks: QBItems<QBTrack>
 
     enum CodingKeys: String, CodingKey {
         case title, baseline, description, type
@@ -28,8 +28,8 @@ struct QBWeeklyQ: Codable {
 }
 
 // MARK: - Graphics
-struct QBGraphics: Codable {
-    let background, foreground: String
+public struct QBGraphics: Codable {
+    public let background, foreground: String
     
     enum CodingKeys: String, CodingKey {
         case background

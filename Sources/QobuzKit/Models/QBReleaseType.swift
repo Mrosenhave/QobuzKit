@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum QBReleaseType: String, Codable {
+public enum QBReleaseType: String, Codable {
     case album = "album"
     case bestof = "bestof"
     case single = "single"

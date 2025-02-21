@@ -7,46 +7,80 @@
 
 import Foundation
 
-struct QBPlaylist: Codable, Hashable, QBContent, Identifiable {
-  func hash(into hasher: inout Hasher) {
+public struct QBPlaylist: Codable, Hashable, QBContent, Identifiable {
+  public init(imageRectangleMini: [String]? = nil, isPublished: Bool? = nil, featuredArtists: [QBArtist]? = nil, playlistDescription: String? = nil, createdAt: Date? = nil, timestampPosition: Int? = nil, images300: [String]? = nil, images600: [String]? = nil, imagesOrg: [String]? = nil, duration: Int, updatedAt: Date? = nil, publishedTo: Int? = nil, genres: [QBGenre]? = nil, tags: [QBTagElement]? = nil, imageRectangle: String? = nil, id: Int, slug: String? = nil, owner: QBArtist, usersCount: Int? = nil, images150: [String]? = nil, images: [String]? = nil, isCollaborative: Bool? = nil, tracksCount: Int, publicAt: Int? = nil, name: String, isPublic: Bool? = nil, publishedFrom: Int? = nil, isFeatured: Bool? = nil, tracks: QBItems<QBTrack>? = nil, trackIds: [Int]? = nil, subscribedAt: Date? = nil) {
+    self.imageRectangleMini = imageRectangleMini
+    self.isPublished = isPublished
+    self.featuredArtists = featuredArtists
+    self.playlistDescription = playlistDescription
+    self.createdAt = createdAt
+    self.timestampPosition = timestampPosition
+    self.images300 = images300
+    self.images600 = images600
+    self.imagesOrg = imagesOrg
+    self.duration = duration
+    self.updatedAt = updatedAt
+    self.publishedTo = publishedTo
+    self.genres = genres
+    self.tags = tags
+    self.imageRectangle = imageRectangle
+    self.id = id
+    self.slug = slug
+    self.owner = owner
+    self.usersCount = usersCount
+    self.images150 = images150
+    self.images = images
+    self.isCollaborative = isCollaborative
+    self.tracksCount = tracksCount
+    self.publicAt = publicAt
+    self.name = name
+    self.isPublic = isPublic
+    self.publishedFrom = publishedFrom
+    self.isFeatured = isFeatured
+    self.tracks = tracks
+    self.trackIds = trackIds
+    self.subscribedAt = subscribedAt
+  }
+  
+  public func hash(into hasher: inout Hasher) {
     hasher.combine(id)
   }
   
-  static func == (lhs: QBPlaylist, rhs: QBPlaylist) -> Bool {
+  public static func == (lhs: QBPlaylist, rhs: QBPlaylist) -> Bool {
     return lhs.id == rhs.id && lhs.trackIds == rhs.trackIds && lhs.updatedAt == rhs.updatedAt && lhs.name == rhs.name && lhs.playlistDescription == rhs.playlistDescription
   }
   
-  var imageRectangleMini: [String]?
-  var isPublished: Bool?
-  var featuredArtists: [QBArtist]?
-  var playlistDescription: String?
-  var createdAt: Date?
-  var timestampPosition: Int?
-  var images300: [String]?
-  var images600: [String]?
-  var imagesOrg: [String]?
-  var duration: Int
-  var updatedAt: Date?
-  var publishedTo: Int?
-  var genres: [QBGenre]?
-  var tags: [QBTagElement]? //Can be either QBTag or QBTagElement :(
-  var imageRectangle: String?
-  var id: Int
-  var slug: String?
-  var owner: QBArtist
-  var usersCount: Int?
-  var images150: [String]?
-  var images: [String]?
-  var isCollaborative: Bool?
-  var tracksCount: Int
-  var publicAt: Int?
-  var name: String
-  var isPublic: Bool?
-  var publishedFrom: Int?
-  var isFeatured: Bool?
-  var tracks: QBItems<QBTrack>?
-  var trackIds: [Int]?
-  var subscribedAt: Date?
+  public var imageRectangleMini: [String]?
+  public var isPublished: Bool?
+  public var featuredArtists: [QBArtist]?
+  public var playlistDescription: String?
+  public var createdAt: Date?
+  public var timestampPosition: Int?
+  public var images300: [String]?
+  public var images600: [String]?
+  public var imagesOrg: [String]?
+  public var duration: Int
+  public var updatedAt: Date?
+  public var publishedTo: Int?
+  public var genres: [QBGenre]?
+  public var tags: [QBTagElement]? //Can be either QBTag or QBTagElement :(
+  public var imageRectangle: String?
+  public var id: Int
+  public var slug: String?
+  public var owner: QBArtist
+  public var usersCount: Int?
+  public var images150: [String]?
+  public var images: [String]?
+  public var isCollaborative: Bool?
+  public var tracksCount: Int
+  public var publicAt: Int?
+  public var name: String
+  public var isPublic: Bool?
+  public var publishedFrom: Int?
+  public var isFeatured: Bool?
+  public var tracks: QBItems<QBTrack>?
+  public var trackIds: [Int]?
+  public var subscribedAt: Date?
   
   enum CodingKeys: String, CodingKey {
     case imageRectangleMini = "image_rectangle_mini"
@@ -85,7 +119,7 @@ struct QBPlaylist: Codable, Hashable, QBContent, Identifiable {
 }
 
 extension QBPlaylist {
-  init(from decoder: Decoder) throws {
+  public init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)
     
     imageRectangleMini = try container.decodeIfPresent([String].self, forKey: .imageRectangleMini)
@@ -155,7 +189,7 @@ extension QBPlaylist {
       subscribedAt = Date(timeIntervalSince1970: TimeInterval(timestamp))
     }
   }
-  func encode(to encoder: Encoder) throws {
+  public func encode(to encoder: Encoder) throws {
     var container = encoder.container(keyedBy: CodingKeys.self)
     
     try container.encodeIfPresent(imageRectangleMini, forKey: .imageRectangleMini)

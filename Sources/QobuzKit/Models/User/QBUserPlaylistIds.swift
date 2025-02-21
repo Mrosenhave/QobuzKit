@@ -7,6 +7,10 @@
 
 import Foundation
 
-struct QBUserPlaylistIds: Codable, Equatable {
-    let playlists: [Int]
+public struct QBUserPlaylistIds: Codable, Equatable {
+  public init(playlists: [Int]) {
+    self.playlists = playlists
+  }
+  
+    public let playlists: [Int]
 }

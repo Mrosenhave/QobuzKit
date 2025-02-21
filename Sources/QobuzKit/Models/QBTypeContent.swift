@@ -7,16 +7,21 @@
 
 import Foundation
 
-struct QBTypeContent: Codable, Hashable {
-    let type: QBTypeContentType
-    let content: QBContent
+public struct QBTypeContent: Codable, Hashable {
+  public init(type: QBTypeContentType, content: any QBContent) {
+    self.type = type
+    self.content = content
+  }
+  
+    public let type: QBTypeContentType
+    public let content: QBContent
     enum CodingKeys: String, CodingKey {
         case type
         case content
     }
 }
 extension QBTypeContent {
-    static func == (lhs: QBTypeContent, rhs: QBTypeContent) -> Bool {
+  public static func == (lhs: QBTypeContent, rhs: QBTypeContent) -> Bool {
         let hasSameType = lhs.type == rhs.type
         var hasSameId: Bool = false
         if hasSameType {
@@ -45,7 +50,7 @@ extension QBTypeContent {
         
     }
     
-    func hash(into hasher: inout Hasher) {
+  public func hash(into hasher: inout Hasher) {
 //        hasher.combine(content)
         switch type {
         case .artists:
@@ -63,7 +68,7 @@ extension QBTypeContent {
         }
     }
     
-    init(from decoder: any Decoder) throws {
+    public init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.type = try container.decode(QBTypeContentType.self, forKey: .type)
         
@@ -80,18 +85,18 @@ extension QBTypeContent {
         self.content = content
     }
     
-    func encode(to encoder: Encoder) throws {
+  public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(type, forKey: .type)
         try container.encode(content, forKey: .content)
     }
 }
 
-enum QBTypeContentType: String, Codable{
+public enum QBTypeContentType: String, Codable{
     case artists
     case albums
     case tracks
     case playlists
 }
 
-protocol QBContent: Codable {}
+public protocol QBContent: Codable {}

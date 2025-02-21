@@ -8,12 +8,12 @@
 import Foundation
 
 // MARK: - Containers
-struct QBContainers: Codable {
-//    let banners: Banners
-    let newReleases, recentReleases, qobuzissims, idealDiscography: QBDiscoverData<QBHasMoreItems<QBAlbum>>
-    let albumOfTheWeek, mostStreamed, pressAwards: QBDiscoverData<QBHasMoreItems<QBAlbum>>
-    let playlists: QBDiscoverData<QBHasMoreItems<QBPlaylist>>
-    let playlistsTags: QBDiscoverData<QBHasMoreItems<QBTagElement>>
+public struct QBContainers: Codable {
+//    public let banners: Banners
+    public let newReleases, recentReleases, qobuzissims, idealDiscography: QBDiscoverData<QBHasMoreItems<QBAlbum>>
+    public let albumOfTheWeek, mostStreamed, pressAwards: QBDiscoverData<QBHasMoreItems<QBAlbum>>
+    public let playlists: QBDiscoverData<QBHasMoreItems<QBPlaylist>>
+    public let playlistsTags: QBDiscoverData<QBHasMoreItems<QBTagElement>>
 
     enum CodingKeys: String, CodingKey {
 //        case banners

@@ -7,7 +7,7 @@
 
 import Foundation
 
-func hashStringToImageModel(hash: String, format: String) -> QBArtistImage {
+public func hashStringToImageModel(hash: String, format: String) -> QBArtistImage {
     let smallUrl = "https://static.qobuz.com/images/artists/covers/small/\(hash).\(format)"
     let mediumUrl = "https://static.qobuz.com/images/artists/covers/medium/\(hash).\(format)"
     let largeUrl = "https://static.qobuz.com/images/artists/covers/large/\(hash).\(format)"

@@ -8,9 +8,9 @@
 import Foundation
 
 // MARK: - Label
-struct QBLabel: Codable {
-    let id: Int
-    let name: String
+public struct QBLabel: Codable {
+    public let id: Int
+    public let name: String
     
     enum CodingKeys: String, CodingKey {
         case id

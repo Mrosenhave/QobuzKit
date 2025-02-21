@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct QBImages: Codable {
-    init(from decoder: Decoder) throws {
+public struct QBImages: Codable {
+    public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         small = try container.decode(String.self, forKey: .small)
         large = try container.decode(String.self, forKey: .large)
@@ -17,11 +17,11 @@ struct QBImages: Codable {
         original = large.replacingOccurrences(of: "_600", with: "_org")
     }
     
-    var small: String
-    var thumbnail: String
-    var large: String
-    var original: String
-    var back: String?
+    public var small: String
+    public var thumbnail: String
+    public var large: String
+    public var original: String
+    public var back: String?
     
     enum CodingKeys: String, CodingKey {
         case small

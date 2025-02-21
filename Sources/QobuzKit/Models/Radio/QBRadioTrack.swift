@@ -8,19 +8,19 @@
 import Foundation
 
 // MARK: - Item
-struct QBRadioTrack: Codable {
-    let id: Int
-    let title: String
-    let version: String?
-    let isrc: String
-    let duration: Int
-    let parentalWarning: Bool
-//    let physicalSupport: PhysicalSupport
-    let audioInfo: QBAudioInfo
-    let rights: QBRights
-    let artists: [QBPerformer]
-    let composer: QBLabel?
-    let album: QBRadioAlbum
+public struct QBRadioTrack: Codable {
+    public let id: Int
+    public let title: String
+    public let version: String?
+    public let isrc: String
+    public let duration: Int
+    public let parentalWarning: Bool
+//    public let physicalSupport: PhysicalSupport
+    public let audioInfo: QBAudioInfo
+    public let rights: QBRights
+    public let artists: [QBPerformer]
+    public let composer: QBLabel?
+    public let album: QBRadioAlbum
 
     enum CodingKeys: String, CodingKey {
         case id, title, version, isrc, duration

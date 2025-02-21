@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct QBDiscoverData<T: Codable>: Codable {
-    let id: QBDiscoverType
-    let data: T
+public struct QBDiscoverData<T: Codable>: Codable {
+    public let id: QBDiscoverType
+    public let data: T
 }

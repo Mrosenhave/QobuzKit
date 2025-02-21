@@ -7,16 +7,27 @@
 
 import Foundation
 
-struct QBTrackUrl: Codable {
+public struct QBTrackUrl: Codable {
+  public init(trackId: Int, duration: Int, url: URL? = nil, formatId: Int? = nil, mimeType: String? = nil, restrictions: [QBTrackURLRestriction]? = nil, samplingRate: Double, bitDepth: Int) {
+    self.trackId = trackId
+    self.duration = duration
+    self.url = url
+    self.formatId = formatId
+    self.mimeType = mimeType
+    self.restrictions = restrictions
+    self.samplingRate = samplingRate
+    self.bitDepth = bitDepth
+  }
+  
     
-    var trackId: Int
-    var duration: Int
-    var url: URL?
-    var formatId: Int?
-    var mimeType: String?
-    var restrictions: [QBTrackURLRestriction]?
-    var samplingRate: Double
-    var bitDepth: Int
+    public var trackId: Int
+    public var duration: Int
+    public var url: URL?
+    public var formatId: Int?
+    public var mimeType: String?
+    public var restrictions: [QBTrackURLRestriction]?
+    public var samplingRate: Double
+    public var bitDepth: Int
     
     enum CodingKeys: String, CodingKey {
         case trackId = "track_id"
@@ -31,7 +42,7 @@ struct QBTrackUrl: Codable {
 }
 
 extension QBTrackUrl {
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             trackId = try container.decode(Int.self, forKey: .trackId)
             duration = try container.decode(Int.self, forKey: .duration)
@@ -44,6 +55,6 @@ extension QBTrackUrl {
         }
 }
 
-struct QBTrackURLRestriction: Codable {
-    let code: String
+public struct QBTrackURLRestriction: Codable {
+    public let code: String
 }

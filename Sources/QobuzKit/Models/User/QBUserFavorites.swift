@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct QBUserFavorites: Codable {
-    let albums: QBItems<QBAlbum>
-    let artists: QBItems<QBArtist>
-    let tracks: QBItems<QBTrack>
-    let user: QBUserIdLogin
+public struct QBUserFavorites: Codable {
+    public let albums: QBItems<QBAlbum>
+    public let artists: QBItems<QBArtist>
+    public let tracks: QBItems<QBTrack>
+    public let user: QBUserIdLogin
 }
 
-struct QBUserIdLogin: Codable {
-    let id: Int
-    let login: String
+public struct QBUserIdLogin: Codable {
+    public let id: Int
+    public let login: String
 }

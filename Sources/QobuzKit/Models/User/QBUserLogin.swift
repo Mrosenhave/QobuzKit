@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct QBUserLogin: Codable {
-    let user: QBUser
-    let userAuthToken: String
+public struct QBUserLogin: Codable {
+    public let user: QBUser
+    public let userAuthToken: String
     
     
     enum CodingKeys: String, CodingKey {

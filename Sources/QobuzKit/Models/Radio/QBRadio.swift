@@ -8,11 +8,11 @@
 import Foundation
 
 // MARK: - QBRadio
-struct QBRadio: Codable {
-    let algorithm, type, title: String
-    let images: QBImages
-    let duration, trackCount: Int
-    let tracks: QBItems<QBRadioTrack>
+public struct QBRadio: Codable {
+    public let algorithm, type, title: String
+    public let images: QBImages
+    public let duration, trackCount: Int
+    public let tracks: QBItems<QBRadioTrack>
 
     enum CodingKeys: String, CodingKey {
         case algorithm, type, title, images, duration

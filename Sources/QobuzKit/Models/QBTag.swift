@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct QBTag: Codable {
-  let featuredTagID, nameJSON, slug, color: String?
-  let genreTag: QBGenreTag?
-  let name: QBTagName?
-  let isDiscover: Bool
+public struct QBTag: Codable {
+  public let featuredTagID, nameJSON, slug, color: String?
+  public let genreTag: QBGenreTag?
+  public let name: QBTagName?
+  public let isDiscover: Bool
   
   enum CodingKeys: String, CodingKey {
     case featuredTagID = "featured_tag_id"
@@ -23,13 +23,13 @@ struct QBTag: Codable {
     case isDiscover = "is_discover"
   }
 }
-struct QBTagName: Codable {
-  let fr: String
-  let en: String
-  let de: String
-  let it: String
-  let nl: String
-  let es: String
-  let pt: String
-  let ja: String
+public struct QBTagName: Codable {
+  public let fr: String
+  public let en: String
+  public let de: String
+  public let it: String
+  public let nl: String
+  public let es: String
+  public let pt: String
+  public let ja: String
 }

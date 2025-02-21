@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct QBGenreTag: Codable {
-    let genreID, name: String
+public struct QBGenreTag: Codable {
+    public let genreID, name: String
     
     enum CodingKeys: String, CodingKey {
         case genreID = "genre_id"

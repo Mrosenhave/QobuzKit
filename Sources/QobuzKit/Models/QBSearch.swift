@@ -7,13 +7,22 @@
 
 import Foundation
 
-struct QBSearch: Codable, Hashable {
-    let query: String?
-    let albums: QBItems<QBAlbum>?
-    let tracks: QBItems<QBTrack>?
-    let artists: QBItems<QBArtist>?
-    let playlists: QBItems<QBPlaylist>?
-    let mostPopular: QBItems<QBTypeContent>?
+public struct QBSearch: Codable, Hashable {
+  public init(query: String? = nil, albums: QBItems<QBAlbum>? = nil, tracks: QBItems<QBTrack>? = nil, artists: QBItems<QBArtist>? = nil, playlists: QBItems<QBPlaylist>? = nil, mostPopular: QBItems<QBTypeContent>? = nil) {
+    self.query = query
+    self.albums = albums
+    self.tracks = tracks
+    self.artists = artists
+    self.playlists = playlists
+    self.mostPopular = mostPopular
+  }
+  
+    public let query: String?
+    public let albums: QBItems<QBAlbum>?
+    public let tracks: QBItems<QBTrack>?
+    public let artists: QBItems<QBArtist>?
+    public let playlists: QBItems<QBPlaylist>?
+    public let mostPopular: QBItems<QBTypeContent>?
     enum CodingKeys: String, CodingKey {
         case query
         case albums
@@ -24,10 +33,10 @@ struct QBSearch: Codable, Hashable {
     }
 }
 extension QBSearch {
-    static func == (lhs: QBSearch, rhs: QBSearch) -> Bool {
+  public static func == (lhs: QBSearch, rhs: QBSearch) -> Bool {
         return lhs.query == rhs.query && lhs.albums?.offset == rhs.albums?.offset && lhs.tracks?.offset == rhs.tracks?.offset && lhs.artists?.offset == rhs.artists?.offset && lhs.playlists?.offset == rhs.playlists?.offset
     }
-    func hash(into hasher: inout Hasher) {
+  public func hash(into hasher: inout Hasher) {
             hasher.combine(query)
             hasher.combine(albums?.offset)
             hasher.combine(tracks?.offset)

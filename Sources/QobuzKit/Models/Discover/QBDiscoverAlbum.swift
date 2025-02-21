@@ -7,27 +7,27 @@
 
 import Foundation
 
-struct QBDiscoverAlbum: Codable, Hashable {
-    func hash(into hasher: inout Hasher) {
+public struct QBDiscoverAlbum: Codable, Hashable {
+    public func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
     
-    static func == (lhs: QBDiscoverAlbum, rhs: QBDiscoverAlbum) -> Bool {
+  public static func == (lhs: QBDiscoverAlbum, rhs: QBDiscoverAlbum) -> Bool {
         return lhs.id == rhs.id
     }
     
-    let id, title: String
-    let version: String?
-    let trackCount, duration: Int
-    let parentalWarning: Bool
-    let image: QBImages
-    let artists: [QBPerformer]
-    let label: QBLabel
-    let genre: QBGenre
-    let dates: QBDates
-    let awards: [QBAward]
-    let audioInfo: QBAudioInfo
-    let rights: QBRights
+    public let id, title: String
+    public let version: String?
+    public let trackCount, duration: Int
+    public let parentalWarning: Bool
+    public let image: QBImages
+    public let artists: [QBPerformer]
+    public let label: QBLabel
+    public let genre: QBGenre
+    public let dates: QBDates
+    public let awards: [QBAward]
+    public let audioInfo: QBAudioInfo
+    public let rights: QBRights
 
     enum CodingKeys: String, CodingKey {
         case id, title, version

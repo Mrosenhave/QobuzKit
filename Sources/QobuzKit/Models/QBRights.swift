@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct QBRights: Codable {
-    let purchasable, streamable, downloadable, hiresStreamable: Bool
-    let hiresPurchasable: Bool?
-    let hires: Bool?
-    let sampleable: Bool?
-    let previewable: Bool?
-    let streamableAt: Int?
+public struct QBRights: Codable {
+    public let purchasable, streamable, downloadable, hiresStreamable: Bool
+    public let hiresPurchasable: Bool?
+    public let hires: Bool?
+    public let sampleable: Bool?
+    public let previewable: Bool?
+    public let streamableAt: Int?
 
     enum CodingKeys: String, CodingKey {
         case purchasable, streamable, downloadable, hires, sampleable, previewable

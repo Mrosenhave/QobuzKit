@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct QBTagElement: Codable {
-  let id: Int
-  let slug: String
-  let name: String
+public struct QBTagElement: Codable {
+  public let id: Int
+  public let slug: String
+  public let name: String
 }

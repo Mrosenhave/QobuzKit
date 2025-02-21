@@ -7,17 +7,30 @@
 
 import Foundation
 
-struct QBArtist: Codable, Hashable, QBContent, Identifiable {
-    var picture: String?
-    var image: QBArtistImage?
-    var name: String
-    var albumsCount: Int?
-    var albumsAsPrimaryComposerCount: Int?
-    var id: Int
-    var similarArtistIds: [Int]?
-    var biography: QBArtistBiography?
-    var albums: QBItems<QBAlbum>?
-    var favoritedAt: Date?
+public struct QBArtist: Codable, Hashable, QBContent, Identifiable {
+  public init(picture: String? = nil, image: QBArtistImage? = nil, name: String, albumsCount: Int? = nil, albumsAsPrimaryComposerCount: Int? = nil, id: Int, similarArtistIds: [Int]? = nil, biography: QBArtistBiography? = nil, albums: QBItems<QBAlbum>? = nil, favoritedAt: Date? = nil) {
+    self.picture = picture
+    self.image = image
+    self.name = name
+    self.albumsCount = albumsCount
+    self.albumsAsPrimaryComposerCount = albumsAsPrimaryComposerCount
+    self.id = id
+    self.similarArtistIds = similarArtistIds
+    self.biography = biography
+    self.albums = albums
+    self.favoritedAt = favoritedAt
+  }
+  
+    public var picture: String?
+    public var image: QBArtistImage?
+    public var name: String
+    public var albumsCount: Int?
+    public var albumsAsPrimaryComposerCount: Int?
+    public var id: Int
+    public var similarArtistIds: [Int]?
+    public var biography: QBArtistBiography?
+    public var albums: QBItems<QBAlbum>?
+    public var favoritedAt: Date?
     
     enum CodingKeys: String, CodingKey {
         case picture
@@ -33,14 +46,14 @@ struct QBArtist: Codable, Hashable, QBContent, Identifiable {
     }
 }
 extension QBArtist {
-    func hash(into hasher: inout Hasher) {
+    public func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
     
-    static func == (lhs: QBArtist, rhs: QBArtist) -> Bool {
+    public static func == (lhs: QBArtist, rhs: QBArtist) -> Bool {
         return lhs.id == rhs.id
     }
-  init(from decoder: Decoder) throws {
+  public init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)
     
     picture = try container.decodeIfPresent(String.self, forKey: .picture)

@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct QBAlbumSuggest: Codable {
-    let algorithm: QBAlgorithmType
-    let albums: QBItems<QBAlbum>
+public struct QBAlbumSuggest: Codable {
+    public let algorithm: QBAlgorithmType
+    public let albums: QBItems<QBAlbum>
     
     enum CodingKeys: String, CodingKey {
         case algorithm
@@ -17,7 +17,7 @@ struct QBAlbumSuggest: Codable {
     }
 }
 
-enum QBAlgorithmType: String, Codable {
+public enum QBAlgorithmType: String, Codable {
     case suggestAlbum = "suggest-album"
     case artistAlbum = "artist-album"
     case artist

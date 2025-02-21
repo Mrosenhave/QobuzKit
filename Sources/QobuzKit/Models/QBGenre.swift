@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct QBGenre: Codable, Hashable {
-    let path: [Int]
-    let name: String
-    let id: Int
+public struct QBGenre: Codable, Hashable {
+    public let path: [Int]
+    public let name: String
+    public let id: Int
     
     enum CodingKeys: String, CodingKey {
         case path
@@ -19,6 +19,6 @@ struct QBGenre: Codable, Hashable {
     }
 }
 
-struct QBGenreList: Codable {
-    let genres: QBItems<QBGenre>
+public struct QBGenreList: Codable {
+    public let genres: QBItems<QBGenre>
 }

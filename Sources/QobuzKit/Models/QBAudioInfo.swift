@@ -6,12 +6,12 @@
 //
 
 import Foundation
-struct QBAudioInfo: Codable {
-    let replaygainTrackPeak: Double?
-    let replaygainTrackGain: Double?
-    let maximumSamplingRate: Double?
-    let maximumBitDepth: Int?
-    let maximumChannelCount: Int?
+public struct QBAudioInfo: Codable {
+    public let replaygainTrackPeak: Double?
+    public let replaygainTrackGain: Double?
+    public let maximumSamplingRate: Double?
+    public let maximumBitDepth: Int?
+    public let maximumChannelCount: Int?
 
     enum CodingKeys: String, CodingKey {
         case replaygainTrackPeak = "replaygain_track_peak"

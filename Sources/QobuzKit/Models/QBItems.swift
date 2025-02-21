@@ -7,11 +7,15 @@
 
 import Foundation
 
-struct QBItems<T: Codable>: Codable {
-    let limit: Int? = nil
-    let offset: Int? = nil
-    let total: Int? = nil
-    let items: [T]
+public struct QBItems<T: Codable>: Codable {
+  public init(items: [T]) {
+    self.items = items
+  }
+  
+    public let limit: Int? = nil
+    public let offset: Int? = nil
+    public let total: Int? = nil
+    public let items: [T]
     
     enum CodingKeys: String, CodingKey {
         case limit

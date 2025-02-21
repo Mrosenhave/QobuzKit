@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct QBArtistImage: Codable, Equatable {
-    let small: String?
-    let medium: String?
-    let large: String?
-    let extralarge: String?
-    let mega: String?
+public struct QBArtistImage: Codable, Equatable {
+    public let small: String?
+    public let medium: String?
+    public let large: String?
+    public let extralarge: String?
+    public let mega: String?
     
     enum CodingKeys: String, CodingKey {
         case small

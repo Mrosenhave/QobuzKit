@@ -7,54 +7,82 @@
 
 import Foundation
 
-struct QBAlbum: Codable, Hashable, QBContent, Identifiable {
+public struct QBAlbum: Codable, Hashable, QBContent, Identifiable {
+  public init(image: QBImages, mediaCount: Int? = nil, artist: QBArtist? = nil, artists: [QBPerformer]? = nil, label: QBLabel, title: String, qobuzId: Int? = nil, version: String? = nil, url: URL? = nil, duration: Int? = nil, parentalWarning: Bool? = nil, tracksCount: Int? = nil, genre: QBGenre, id: String, rights: QBRights, awards: [QBAward]? = nil, audioInfo: QBAudioInfo, albumDescription: String? = nil, copyright: String? = nil, maximumTechnicalSpecifications: String? = nil, trackIds: [Int]? = nil, dates: QBDates, tracks: QBItems<QBTrack>? = nil, albumsFromSameArtist: QBItems<QBAlbum>? = nil, favoritedAt: Date? = nil) {
+    self.image = image
+    self.mediaCount = mediaCount
+    self.artist = artist
+    self.artists = artists
+    self.label = label
+    self.title = title
+    self.qobuzId = qobuzId
+    self.version = version
+    self.url = url
+    self.duration = duration
+    self.parentalWarning = parentalWarning
+    self.tracksCount = tracksCount
+    self.genre = genre
+    self.id = id
+    self.rights = rights
+    self.awards = awards
+    self.audioInfo = audioInfo
+    self.albumDescription = albumDescription
+    self.copyright = copyright
+    self.maximumTechnicalSpecifications = maximumTechnicalSpecifications
+    self.trackIds = trackIds
+    self.dates = dates
+    self.tracks = tracks
+    self.albumsFromSameArtist = albumsFromSameArtist
+    self.favoritedAt = favoritedAt
+  }
   
-  static func == (lhs: QBAlbum, rhs: QBAlbum) -> Bool {
+  
+  public static func == (lhs: QBAlbum, rhs: QBAlbum) -> Bool {
     return lhs.id == rhs.id && lhs.trackIds == rhs.trackIds && lhs.tracks?.items == rhs.tracks?.items
   }
   
-  func hash(into hasher: inout Hasher) {
+  public func hash(into hasher: inout Hasher) {
     hasher.combine(id)
   }
   
   
-  //    var maximumBitDepth: Int?
-  var image: QBImages
-  var mediaCount: Int? // does not appear in weeklyQ
-  var artist: QBArtist?
-  var artists: [QBPerformer]?
-  let label: QBLabel
-  //    var releasedAt: Date
-  var title: String
-  var qobuzId: Int?
-  var version: String?
-  var url: URL?
-  var duration: Int? // does not appear in weeklyQ
-  var parentalWarning: Bool? // does not appear in weeklyQ
-  var tracksCount: Int? // does not appear in weeklyQ
-  var genre: QBGenre
-  //    var maximumChannelCount: Int
-  //    var maximumSamplingRate: Double
-  var id: String
-  //    var purchasable: Bool
-  //    var streamable: Bool
-  //    var previewable: Bool
-  //    var sampleable: Bool
-  //    var downloadable: Bool
-  //    var streamableAt: Int?
-  //    var hires: Bool
-  //    var hiresStreamable: Bool
-  let rights: QBRights
-  let awards: [QBAward]?
-  let audioInfo: QBAudioInfo
-  var albumDescription: String?
-  var copyright: String?
-  var maximumTechnicalSpecifications: String?
-  var trackIds: [Int]?
-  var dates: QBDates
-  var tracks: QBItems<QBTrack>?
-  var albumsFromSameArtist: QBItems<QBAlbum>?
-  var favoritedAt: Date?
+  //    public var maximumBitDepth: Int?
+  public var image: QBImages
+  public var mediaCount: Int? // does not appear in weeklyQ
+  public var artist: QBArtist?
+  public var artists: [QBPerformer]?
+  public let label: QBLabel
+  //    public var releasedAt: Date
+  public var title: String
+  public var qobuzId: Int?
+  public var version: String?
+  public var url: URL?
+  public var duration: Int? // does not appear in weeklyQ
+  public var parentalWarning: Bool? // does not appear in weeklyQ
+  public var tracksCount: Int? // does not appear in weeklyQ
+  public var genre: QBGenre
+  //    public var maximumChannelCount: Int
+  //    public var maximumSamplingRate: Double
+  public var id: String
+  //    public var purchasable: Bool
+  //    public var streamable: Bool
+  //    public var previewable: Bool
+  //    public var sampleable: Bool
+  //    public var downloadable: Bool
+  //    public var streamableAt: Int?
+  //    public var hires: Bool
+  //    public var hiresStreamable: Bool
+  public let rights: QBRights
+  public let awards: [QBAward]?
+  public let audioInfo: QBAudioInfo
+  public var albumDescription: String?
+  public var copyright: String?
+  public var maximumTechnicalSpecifications: String?
+  public var trackIds: [Int]?
+  public var dates: QBDates
+  public var tracks: QBItems<QBTrack>?
+  public var albumsFromSameArtist: QBItems<QBAlbum>?
+  public var favoritedAt: Date?
   
   enum CodingKeys: String, CodingKey {
     case maximumBitDepth = "maximum_bit_depth"
@@ -103,7 +131,7 @@ struct QBAlbum: Codable, Hashable, QBContent, Identifiable {
 }
 
 extension QBAlbum {
-  init(from decoder: Decoder) throws {
+  public init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)
     
     image = try container.decode(QBImages.self, forKey: .image)
@@ -133,12 +161,12 @@ extension QBAlbum {
     if let date = try? container.decode(QBDates.self, forKey: .dates) {
       dates = date
     } else {
-      var download: Date? = nil
-      var original: Date? = nil
-      var stream: Date? = nil
-      var purchase: Date? = nil
+       var download: Date? = nil
+       var original: Date? = nil
+       var stream: Date? = nil
+       var purchase: Date? = nil
       
-      let dateStringFormatter = DateFormatter()
+       let dateStringFormatter = DateFormatter()
       dateStringFormatter.dateFormat = "yyyy-MM-dd"
       
       if let dateString = try! container.decodeIfPresent(String.self, forKey: .releaseDateDownload) {
@@ -157,21 +185,21 @@ extension QBAlbum {
       //            purchase = try dateStringFormatter.date(from: container.decode(String.self, forKey: .releaseDatePurchase)) ?? nil
       //            stream = try dateStringFormatter.date(from: container.decode(String.self, forKey: .releaseDateStream)) ?? nil
       
-      let dates = QBDates(download: download, original: original ?? Date.now, purchase: purchase, stream: stream)
+       let dates = QBDates(download: download, original: original ?? Date.now, purchase: purchase, stream: stream)
       self.dates = dates
     }
     
     if let TempRights = try? container.decode(QBRights.self, forKey: .rights) {
       rights = TempRights
     } else {
-      var purchasable: Bool? = false
-      var streamable: Bool? = false
-      var previewable: Bool? = false
-      var sampleable: Bool? = false
-      var downloadable: Bool? = false
-      var streamableAt: Int? = nil
-      var hires: Bool? = false
-      var hiresStreamable: Bool? = false
+       var purchasable: Bool? = false
+       var streamable: Bool? = false
+       var previewable: Bool? = false
+       var sampleable: Bool? = false
+       var downloadable: Bool? = false
+       var streamableAt: Int? = nil
+       var hires: Bool? = false
+       var hiresStreamable: Bool? = false
       
       
       purchasable = try container.decode(Bool.self, forKey: .purchasable)
@@ -183,7 +211,7 @@ extension QBAlbum {
       hires = try container.decode(Bool.self, forKey: .hires)
       hiresStreamable = try container.decode(Bool.self, forKey: .hiresStreamable)
       
-      let TempRights = QBRights(purchasable: purchasable ?? false, streamable: streamable ?? false, downloadable: downloadable ?? false, hiresStreamable: hiresStreamable ?? false, hiresPurchasable: nil, hires: hires, sampleable: sampleable, previewable: previewable, streamableAt: streamableAt)
+       let TempRights = QBRights(purchasable: purchasable ?? false, streamable: streamable ?? false, downloadable: downloadable ?? false, hiresStreamable: hiresStreamable ?? false, hiresPurchasable: nil, hires: hires, sampleable: sampleable, previewable: previewable, streamableAt: streamableAt)
       self.rights = TempRights
     }
     
@@ -194,15 +222,15 @@ extension QBAlbum {
       //            maximumBitDepth = try container.decode(Int.self, forKey: .maximumBitDepth)
       //            maximumChannelCount = try container.decode(Int.self, forKey: .maximumChannelCount)
       //            maximumSamplingRate = try container.decode(Double.self, forKey: .maximumSamplingRate)
-      var bitDepth: Int? = nil
-      var channelCount: Int? = nil
-      var samplingRate: Double? = nil
+       var bitDepth: Int? = nil
+       var channelCount: Int? = nil
+       var samplingRate: Double? = nil
       
       bitDepth = try container.decode(Int.self, forKey: .maximumBitDepth)
       channelCount = try container.decode(Int.self, forKey: .maximumChannelCount)
       samplingRate = try container.decode(Double.self, forKey: .maximumSamplingRate)
       
-      let TempAudioInfo = QBAudioInfo(replaygainTrackPeak: nil, replaygainTrackGain: nil, maximumSamplingRate: samplingRate, maximumBitDepth: bitDepth, maximumChannelCount: channelCount)
+       let TempAudioInfo = QBAudioInfo(replaygainTrackPeak: nil, replaygainTrackGain: nil, maximumSamplingRate: samplingRate, maximumBitDepth: bitDepth, maximumChannelCount: channelCount)
       self.audioInfo = TempAudioInfo
     }
     
@@ -219,8 +247,8 @@ extension QBAlbum {
     }
   }
   
-  func encode(to encoder: Encoder) throws {
-    var container = encoder.container(keyedBy: CodingKeys.self)
+  public func encode(to encoder: Encoder) throws {
+     var container = encoder.container(keyedBy: CodingKeys.self)
     
     //            try container.encode(maximumBitDepth, forKey: .maximumBitDepth)
     try container.encode(image, forKey: .image)
@@ -261,7 +289,7 @@ extension QBAlbum {
   }
   
   private func parseDateString(_ dateString: String) -> Date? {
-    let dateStringFormatter = DateFormatter()
+     let dateStringFormatter = DateFormatter()
     dateStringFormatter.dateFormat = "yyyy-MM-dd"
     return dateStringFormatter.date(from: dateString)
   }

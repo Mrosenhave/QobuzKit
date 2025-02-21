@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct QBArtistBiography: Codable {
-    let summary: String
-    let content: String
-    let source: String
-    let language: String
+public struct QBArtistBiography: Codable {
+    public let summary: String
+    public let content: String
+    public let source: String
+    public let language: String
     
     enum CodingKeys: String, CodingKey {
         case summary

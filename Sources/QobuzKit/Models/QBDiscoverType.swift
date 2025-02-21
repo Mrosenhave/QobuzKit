@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum QBDiscoverType: String, Codable {
+public enum QBDiscoverType: String, Codable {
     case banners
     case newReleases
     case recentReleases

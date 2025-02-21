@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct QBUserPlaylists: Codable {
-    let user: QBUserIdLogin
-    let playlists: QBItems<QBPlaylist>
+public struct QBUserPlaylists: Codable {
+    public let user: QBUserIdLogin
+    public let playlists: QBItems<QBPlaylist>
 }

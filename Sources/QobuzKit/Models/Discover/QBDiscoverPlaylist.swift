@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct QBDiscoverPlaylist: Codable {
-    let id: Int
-    let name: String
-    let owner: QBArtist
-    let image: QBRectangleImage
-    let description: String
-    let duration, tracksCount: Int
-    let genres: [QBGenre]
+public struct QBDiscoverPlaylist: Codable {
+    public let id: Int
+    public let name: String
+    public let owner: QBArtist
+    public let image: QBRectangleImage
+    public let description: String
+    public let duration, tracksCount: Int
+    public let genres: [QBGenre]
 
     enum CodingKeys: String, CodingKey {
         case id, name, owner, image, description, duration

@@ -8,8 +8,8 @@
 import Foundation
 
 // MARK: - TopTrack
-struct QBArtistTopTrack: Codable, Hashable {
-    internal init(id: Int, title: String, version: String? = nil, artist: QBArtistPageArtist, album: QBArtistTopTrackAlbum, duration: Int, parentalWarning: Bool) {
+public struct QBArtistTopTrack: Codable, Hashable {
+    public init(id: Int, title: String, version: String? = nil, artist: QBArtistPageArtist, album: QBArtistTopTrackAlbum, duration: Int, parentalWarning: Bool) {
         self.id = id
         self.title = title.trimmingCharacters(in: .whitespaces)
         self.version = version?.trimmingCharacters(in: .whitespaces)
@@ -19,13 +19,13 @@ struct QBArtistTopTrack: Codable, Hashable {
         self.parentalWarning = parentalWarning
     }
     
-    let id: Int
-    let title: String
-    let version: String?
-    let artist: QBArtistPageArtist?
-    let album: QBArtistTopTrackAlbum
-    let duration: Int
-    let parentalWarning: Bool
+    public let id: Int
+    public let title: String
+    public let version: String?
+    public let artist: QBArtistPageArtist?
+    public let album: QBArtistTopTrackAlbum
+    public let duration: Int
+    public let parentalWarning: Bool
     
     enum CodingKeys: String, CodingKey {
             case id
@@ -38,27 +38,27 @@ struct QBArtistTopTrack: Codable, Hashable {
         }
 }
 extension QBArtistTopTrack {
-    static func == (lhs: QBArtistTopTrack, rhs: QBArtistTopTrack) -> Bool {
+    public static func == (lhs: QBArtistTopTrack, rhs: QBArtistTopTrack) -> Bool {
         return lhs.id == rhs.id
     }
     
-    func hash(into hasher: inout Hasher) {
+    public func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
 }
 // MARK: - TopTrack
-struct QBArtistTopTrackAlbum: Codable, Hashable {
-    internal init(id: String, title: String, version: String? = nil, image: QBImages) {
+public struct QBArtistTopTrackAlbum: Codable, Hashable {
+    public init(id: String, title: String, version: String? = nil, image: QBImages) {
         self.id = id
         self.title = title.trimmingCharacters(in: .whitespaces)
         self.version = version?.trimmingCharacters(in: .whitespaces)
         self.image = image
     }
     
-    let id: String
-    let title: String
-    let version: String?
-    let image: QBImages
+    public let id: String
+    public let title: String
+    public let version: String?
+    public let image: QBImages
     
     enum CodingKeys: String, CodingKey {
             case id
@@ -69,10 +69,10 @@ struct QBArtistTopTrackAlbum: Codable, Hashable {
 }
 
 extension QBArtistTopTrackAlbum {
-    static func == (lhs: QBArtistTopTrackAlbum, rhs: QBArtistTopTrackAlbum) -> Bool {
+    public static func == (lhs: QBArtistTopTrackAlbum, rhs: QBArtistTopTrackAlbum) -> Bool {
         return lhs.id == rhs.id
     }
-    func hash(into hasher: inout Hasher) {
+    public func hash(into hasher: inout Hasher) {
             hasher.combine(id)
         }
 }

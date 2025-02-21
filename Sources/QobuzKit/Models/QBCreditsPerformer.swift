@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct QBCreditsPerformer: Codable, Equatable {
-    let name: String
-    let roles: [String]
+public struct QBCreditsPerformer: Codable, Equatable {
+    public let name: String
+    public let roles: [String]
     
     enum CodingKeys: String, CodingKey {
         case name
@@ -17,41 +17,44 @@ struct QBCreditsPerformer: Codable, Equatable {
     }
 }
 
-func parsePerformers(from inputString: String) -> [QBCreditsPerformer]? {
+func parsePerformers(from inputString: String) -> [String: [String]]? {
     let performerStrings = inputString.split(separator: " - ").map { String($0) }
-    var performers: [QBCreditsPerformer] = []
+    var performerDict: [String: Set<String>] = [:] // Using Set to prevent duplicate roles
 
     for performerString in performerStrings {
-        let components = performerString.split(separator: ",").map { String($0).trimmingCharacters(in: .whitespaces) }
+      let components = performerString.split(separator: ",").map { String($0).trimmingCharacters(in: .whitespacesAndNewlines) }
         if let name = components.first, components.count > 1 {
-            let roles = Array(components.dropFirst())
-            let performer = QBCreditsPerformer(name: name, roles: roles)
-            performers.append(performer)
+            let roles = Set(components.dropFirst()) // Convert roles to a Set to ensure uniqueness
+            performerDict[name, default: []].formUnion(roles)
         } else {
-            // If parsing fails at any point, return nil
-            return nil
+            return nil // Return nil if parsing fails
         }
     }
 
-    return performers
+    // Convert Set<String> to [String] and sort roles for consistency
+//  print(performerDict)
+    return performerDict.mapValues { Array($0).sorted() }
 }
 
-func formatPerformers(_ performers: [QBCreditsPerformer]?) -> String? {
-    guard let performers = performers else {
+
+func formatPerformers(_ performers: [String: Set<String>]?) -> String? {
+    guard let performers else {
         return nil
     }
 
     var formattedString = ""
 
     for performer in performers {
-        let rolesString = performer.roles.joined(separator: ", ")
-        let performerString = "\(performer.name) - \(rolesString)"
+      if formattedString != "" {
+        //All but first performer has " - "
+         formattedString.append(" - ")
+      }
+      let rolesString = performer.value.joined(separator: ", ")
+        let performerString = "\(performer.key) - \(rolesString)"
         formattedString.append(performerString)
 
-        if performer != performers.last {
-            formattedString.append(" - ")
-        }
     }
 
     return formattedString
 }
+
