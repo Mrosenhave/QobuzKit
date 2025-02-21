@@ -3,7 +3,9 @@
 
 import Foundation
 
-public struct QobuzAPI {}
+public struct QobuzAPI {
+  //MARK: Endpoints here
+}
 
 public class QobuzClient:ObservableObject {
   @MainActor public static let shared = QobuzClient (appId: "", appSecret: "")
@@ -27,8 +29,10 @@ public class QobuzClient:ObservableObject {
     self.appId = appId
     self.appSecret = appSecret
   }
+  
+  //MARK: Network requests here
 }
 
 public struct QobuzCredential {
-  
+  //MARK: Get app credentials here
 }
