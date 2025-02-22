@@ -11,9 +11,15 @@ import Foundation
 public struct QBLabel: Codable {
     public let id: Int
     public let name: String
+  public let albums: QBItems<QBAlbum>?
     
     enum CodingKeys: String, CodingKey {
         case id
         case name
+        case albums
     }
+}
+
+public struct QBLabelList: Codable {
+    public let lables: QBItems<QBGenre>
 }
