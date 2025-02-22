@@ -14,9 +14,8 @@ public extension Endpoint {
       url: URL(string: baseURL)!
         .appendingPathComponent(path), resolvingAgainstBaseURL: false)
 
-    if let parameters = parameters as? [URLQueryItem] {
       components?.queryItems = parameters
-    }
+    
 
     return components?.url
   }
