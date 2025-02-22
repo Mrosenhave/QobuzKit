@@ -14,7 +14,7 @@ public extension Endpoint {
       url: URL(string: baseURL)!
         .appendingPathComponent(path), resolvingAgainstBaseURL: false)
 
-      components?.queryItems = parameters
+    components?.queryItems = parameters.sorted { $0.name < $1.name }
     
 
     return components?.url
