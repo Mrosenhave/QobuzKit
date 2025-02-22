@@ -18,7 +18,7 @@ extension QobuzAPI.Endpoints {
    
    - Returns: A QBSearchCount object.
   */
-  public struct CatalogAutocomplete: Endpoint {
+  public struct CatalogCount: Endpoint {
     public init(
       query: String
     ) {
