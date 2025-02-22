@@ -25,6 +25,7 @@ public struct QBArtistRelease: Codable, Hashable {
 //    public let audioInfo: AudioInfo
 //    public let rights: LastReleaseRights
 //    public let description: String?
+  public let tracks: QBHasMoreItems<QBRadioTrack>?
 
     enum CodingKeys: String, CodingKey {
         case id, title, version
@@ -37,6 +38,7 @@ public struct QBArtistRelease: Codable, Hashable {
         case parentalWarning = "parental_warning"
 //        case audioInfo = "audio_info"
 //        case rights, description
+      case tracks
     }
 }
 extension QBArtistRelease {

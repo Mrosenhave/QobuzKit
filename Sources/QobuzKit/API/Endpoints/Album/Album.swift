@@ -45,7 +45,7 @@ extension QobuzAPI.Endpoints {
 
     public typealias Response = QBAlbum
 
-    public var path: String = "album/get"
+    public let path: String = "album/get"
 
     public var parameters: [URLQueryItem]
 

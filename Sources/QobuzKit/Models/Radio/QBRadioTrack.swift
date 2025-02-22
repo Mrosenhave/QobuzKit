@@ -19,6 +19,7 @@ public struct QBRadioTrack: Codable {
     public let audioInfo: QBAudioInfo
     public let rights: QBRights
     public let artists: [QBPerformer]
+    public let artist: QBPerformer
     public let composer: QBLabel?
     public let album: QBRadioAlbum
 
@@ -27,6 +28,6 @@ public struct QBRadioTrack: Codable {
         case parentalWarning = "parental_warning"
 //        case physicalSupport = "physical_support"
         case audioInfo = "audio_info"
-        case rights, artists, composer, album
+        case rights, artists, artist, composer, album
     }
 }

@@ -9,7 +9,7 @@ import Foundation
 
 public protocol Endpoint {
     associatedtype Response: Decodable
-    var path: String { get }
+  var path: String { get }
   var parameters: [URLQueryItem] { get }
     var body: Data? { get }  // For POST request data
 
@@ -19,6 +19,5 @@ public protocol Endpoint {
 
 public extension Endpoint {
   //Default Values
-  var parameters: [URLQueryItem] { [URLQueryItem]() }
   var body: Data? { nil }
 }

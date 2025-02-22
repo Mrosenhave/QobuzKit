@@ -8,14 +8,14 @@
 import Foundation
 
 public enum QBReleaseType: String, Codable {
-    case album = "album"
-    case bestof = "bestof"
-    case single = "single"
-    case compilation = "compilation"
-    case live = "live"
-    case epSingle = "epSingle"
-    case boxset = "boxset"
-    case epmini = "epmini"
-    case download = "download"
-    case other = "other"
+    case album
+    case bestof
+    case single
+    case compilation
+    case live
+    case epSingle
+    case boxset
+    case epmini
+    case download
+    case other
 }
