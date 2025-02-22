@@ -29,11 +29,16 @@ extension QobuzAPI.Endpoints {
    */
   public struct Album: Endpoint {
     
-    public init(albumId: String, extra: [Album.albumExtra]? = nil, limit: Int? = nil, offset: Int? = nil) {
+    public init(
+      albumId: String,
+      extra: albumExtra...,
+      limit: Int? = nil,
+      offset: Int? = nil
+    ) {
       self.parameters = [URLQueryItem(name: QobuzAPI.Parameters.albumId(), value: albumId)]
-      if let extra {
-        self.parameters.append(URLQueryItem(name: QobuzAPI.Parameters.extra(), value: extra.map({$0.rawValue}).joined(separator: ",")))
-      }
+      
+      self.parameters.append(URLQueryItem(name: QobuzAPI.Parameters.extra(), value: extra.map({$0.rawValue}).joined(separator: ",")))
+      
       if let limit {
         self.parameters.append(URLQueryItem(name: QobuzAPI.Parameters.limit(), value: String(limit)))
       }

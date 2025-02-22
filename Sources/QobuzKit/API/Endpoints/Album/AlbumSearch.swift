@@ -20,7 +20,7 @@ extension QobuzAPI.Endpoints {
    - Parameter limit: Maximum number of results (default: 50, max: 500)
    - Parameter offset: Offset of first result (default: 0)
    
-   - Returns: A QBSearch object with only the query amd albums section.
+   - Returns: A QBSearch object with only the query and albums section.
   */
   public struct AlbumSearch: Endpoint {
     public init(

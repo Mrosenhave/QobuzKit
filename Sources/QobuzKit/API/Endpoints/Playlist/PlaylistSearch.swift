@@ -1,5 +1,5 @@
 //
-//  ArtistSearch.swift
+//  PlaylistSearch.swift
 //  QobuzKit
 //
 //  Created by Markus Rosenhave on 22/02/2025.
@@ -9,9 +9,9 @@ import Foundation
 
 extension QobuzAPI.Endpoints {
   /**
-   Searches the artists catalog by name. Sorted by relevance.
+   Searches the playlists catalog by name. Sorted by relevance.
 
-   **NB: Wrapper for CatalogSearch with type .artists**
+   **NB: Wrapper for CatalogSearch with type .playlists**
    
    ## Authentication
    Requires a valid app_id and user_auth_token.
@@ -20,9 +20,9 @@ extension QobuzAPI.Endpoints {
    - Parameter limit: Maximum number of results (default: 50, max: 500)
    - Parameter offset: Offset of first result (default: 0)
    
-   - Returns: A QBSearch object with only the query and artists section.
+   - Returns: A QBSearch object with only the query and playlist section.
   */
-  public struct ArtistSearch: Endpoint {
+  public struct PlaylistSearch: Endpoint {
     public init(
       query: String,
       limit: Int? = nil,
@@ -42,7 +42,7 @@ extension QobuzAPI.Endpoints {
 
     public typealias Response = QBSearch
 
-    public let path: String = "artist/search"
+    public let path: String = "playlist/search"
 
     public var parameters: [URLQueryItem]
 

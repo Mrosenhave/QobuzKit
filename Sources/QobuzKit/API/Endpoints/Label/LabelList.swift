@@ -16,8 +16,8 @@ extension QobuzAPI.Endpoints {
    ## Authentication
    Requires a valid app_id and user_auth_token.
    
-   - Parameter limit: Maximum number of genres (default: 25, max: 100)
-   - Parameter offset: Offset of the first genre (default: 0)
+   - Parameter limit: Maximum number of labels (default: 25, max: 100)
+   - Parameter offset: Offset of the first label (default: 0)
    
    - Returns: A QBLabelList object.
   */

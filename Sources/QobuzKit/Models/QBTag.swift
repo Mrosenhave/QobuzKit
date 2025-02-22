@@ -33,3 +33,7 @@ public struct QBTagName: Codable {
   public let pt: String
   public let ja: String
 }
+
+public struct QBTagList: Codable {
+  public let tags: QBItems<QBTag>
+}
