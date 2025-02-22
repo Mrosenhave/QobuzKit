@@ -16,6 +16,7 @@ public extension QobuzAPI {
       case albumIds = "album_ids"
       case appId = "app_id"
       case articleId = "article_id"
+      case articleIds = "article_ids"
       case artistId = "artist_id"
       case artistIds = "artist_ids"
       case description = "description"
