@@ -10,10 +10,16 @@ import Foundation
 extension QobuzAPI.Endpoints {
   public struct Album: Endpoint {
     
-    public init(albumId: String, extra: [Album.albumExtra]?) {
+    public init(albumId: String, extra: [Album.albumExtra]?, limit: Int?, offset: Int?) {
       self.parameters = [URLQueryItem(name: QobuzAPI.Parameters.AlbumId(), value: albumId)]
       if let extra {
         self.parameters?.append(URLQueryItem(name: QobuzAPI.Parameters.Extra(), value: extra.map({$0.rawValue}).joined(separator: ",")))
+      }
+      if let limit {
+        self.parameters?.append(URLQueryItem(name: QobuzAPI.Parameters.Limit(), value: String(limit)))
+      }
+      if let offset {
+        self.parameters?.append(URLQueryItem(name: QobuzAPI.Parameters.Offset(), value: String(offset)))
       }
     }
     
