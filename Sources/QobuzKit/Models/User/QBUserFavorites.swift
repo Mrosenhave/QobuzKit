@@ -14,7 +14,4 @@ public struct QBUserFavorites: Codable {
     public let user: QBUserIdLogin
 }
 
-public struct QBUserIdLogin: Codable {
-    public let id: Int
-    public let login: String
-}
+

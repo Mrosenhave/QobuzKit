@@ -52,6 +52,8 @@ public extension QobuzAPI {
       case rubricIds = "rubric_ids"
       case source = "source"
       case sort = "sort"
+      case since = "since"
+      case sample = "sample"
       case releaseType = "release_type"
       case trackId = "track_id"
       case trackIds = "track_ids"
