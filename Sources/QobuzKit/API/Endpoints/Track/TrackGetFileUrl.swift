@@ -19,7 +19,7 @@ extension QobuzAPI.Endpoints {
    This endpoint must be signed by sending both requestTs and requestSig parameters.
    
    - Parameter trackId: The track ID to fetch the URL of.
-   - Parameter formatId: The format to fetch
+   - Parameter format: The format to fetch
    - Parameter intent: How the application will use the file URL
    - Parameter sample: Force sample
    - Parameter appSecret: Your app secret
@@ -29,14 +29,14 @@ extension QobuzAPI.Endpoints {
   public struct TrackGetFileUrl: Endpoint {
     public init(
       trackId: Int,
-      formatId: trackFormat,
+      format: trackFormat,
       intent: trackIntent,
       appSecret: String,
       sample: Bool? = nil
     ) {
       self.parameters = [
         .init(name: QobuzAPI.Parameters.trackId(), value: String(trackId)),
-        .init(name: QobuzAPI.Parameters.formatId(), value: String(formatId.rawValue)),
+        .init(name: QobuzAPI.Parameters.formatId(), value: String(format.rawValue)),
         .init(name: QobuzAPI.Parameters.intent(), value: intent.rawValue)
       ]
       if let sample {
