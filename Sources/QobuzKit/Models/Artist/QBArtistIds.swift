@@ -8,11 +8,11 @@
 import Foundation
 
 public struct QBArtistIds: Encodable {
-  public init(artistIds: [String]) {
+  public init(artistIds: [Int]) {
     self.artistIds = artistIds
   }
   
-  public let artistIds: [String]
+  public let artistIds: [Int]
   
   enum CodingKeys: String, CodingKey {
     case artistIds = "artist_ids"

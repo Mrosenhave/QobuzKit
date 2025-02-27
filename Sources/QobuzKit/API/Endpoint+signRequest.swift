@@ -27,7 +27,7 @@ extension Endpoint {
     ]
   }
   
-  private func calculateMD5Hash(for string: String) -> String {
+  public func calculateMD5Hash(for string: String) -> String {
     guard let messageData = string.data(using: .utf8) else {
         return ""
     }
