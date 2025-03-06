@@ -9,7 +9,7 @@ import Foundation
 
 public struct QBArtistPage: Codable {
   public let id: Int
-  public let name: QBArtistPageName
+  public let name: String
   public let biography: QBArtistPageBiography?
   public let images: QBArtistImage?
   public let similarArtists: QBHasMoreItems<QBArtistPageArtist>
@@ -36,7 +36,16 @@ extension QBArtistPage {
     let container = try decoder.container(keyedBy: CodingKeys.self)
     
     id = try container.decode(Int.self, forKey: .id)
-    name = try container.decode(QBArtistPageName.self, forKey: .name)
+    if let nameString = try? container.decode(String.self, forKey: .name) {
+      // Try decoding `name` as a simple string first
+      self.name = nameString
+    } else if let nameDict = try? container.decode([String: String].self, forKey: .name),
+              let displayName = nameDict["display"] {
+      // Try decoding `name` as a nested dictionary
+      self.name = displayName
+    } else {
+      self.name = ""
+    }
     biography = try container.decodeIfPresent(QBArtistPageBiography.self, forKey: .biography)
     
     let imagesPortrait = try container.decodeIfPresent(QBArtistPageImages.self, forKey: .images)?.portrait
@@ -77,10 +86,7 @@ extension QBArtistPage {
   }
 }
 
-// MARK: - ArtistPageName
-public struct QBArtistPageName: Codable {
-  public let display: String
-}
+
 // MARK: - ArtistPageBiography
 public struct QBArtistPageBiography: Codable {
   public let content: String
@@ -100,7 +106,7 @@ public struct QBArtistImageHashFormat: Codable {
 // MARK: - Item
 public struct QBArtistPageArtist: Codable, Hashable {
   public let id: Int
-  public let name: QBArtistPageName
+  public let name: String
   public let images: QBArtistImage?
 }
 extension QBArtistPageArtist {
@@ -115,7 +121,17 @@ extension QBArtistPageArtist {
     let container = try decoder.container(keyedBy: CodingKeys.self)
     
     id = try container.decode(Int.self, forKey: .id)
-    name = try container.decode(QBArtistPageName.self, forKey: .name)
+//    name = try container.decode(QBArtistPageName.self, forKey: .name)
+    if let nameString = try? container.decode(String.self, forKey: .name) {
+      // Try decoding `name` as a simple string first
+        self.name = nameString
+    } else if let nameDict = try? container.decode([String: String].self, forKey: .name),
+       let displayName = nameDict["display"] {
+      // Try decoding `name` as a nested dictionary
+        self.name = displayName
+    } else {
+      self.name = ""
+    }
     
     let imagesPortrait = try container.decodeIfPresent(QBArtistPageImages.self, forKey: .images)?.portrait
     if let hash = imagesPortrait?.hash, let format = imagesPortrait?.format {

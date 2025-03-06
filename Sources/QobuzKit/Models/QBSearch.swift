@@ -8,12 +8,13 @@
 import Foundation
 
 public struct QBSearch: Codable, Hashable {
-  public init(query: String? = nil, albums: QBItems<QBAlbum>? = nil, tracks: QBItems<QBTrack>? = nil, artists: QBItems<QBArtist>? = nil, playlists: QBItems<QBPlaylist>? = nil, mostPopular: QBItems<QBTypeContent>? = nil) {
+  public init(query: String? = nil, albums: QBItems<QBAlbum>? = nil, tracks: QBItems<QBTrack>? = nil, artists: QBItems<QBArtist>? = nil, playlists: QBItems<QBPlaylist>? = nil, stories: QBItems<QBStory>? = nil, mostPopular: QBItems<QBTypeContent>? = nil) {
     self.query = query
     self.albums = albums
     self.tracks = tracks
     self.artists = artists
     self.playlists = playlists
+    self.stories = stories
     self.mostPopular = mostPopular
   }
   
@@ -22,6 +23,7 @@ public struct QBSearch: Codable, Hashable {
     public let tracks: QBItems<QBTrack>?
     public let artists: QBItems<QBArtist>?
     public let playlists: QBItems<QBPlaylist>?
+    public let stories: QBItems<QBStory>?
     public let mostPopular: QBItems<QBTypeContent>?
     enum CodingKeys: String, CodingKey {
         case query
@@ -29,6 +31,7 @@ public struct QBSearch: Codable, Hashable {
         case tracks
         case artists
         case playlists
+        case stories
         case mostPopular = "most_popular"
     }
 }

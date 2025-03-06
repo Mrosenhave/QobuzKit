@@ -17,11 +17,11 @@ public struct QBArtistRelease: Codable, Hashable {
     public let image: QBImages
 //    public let label: Label
 //    public let genre: Genre
-    public let releaseType: QBReleaseType
+    public let releaseType: QBReleaseType?
 //    public let releaseTags: [String]
-    public let duration: Int
-    public let dates: QBDates
-    public let parentalWarning: Bool
+    public let duration: Int?
+    public let dates: QBDates?
+    public let parentalWarning: Bool?
 //    public let audioInfo: AudioInfo
 //    public let rights: LastReleaseRights
 //    public let description: String?
