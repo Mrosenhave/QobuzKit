@@ -12,5 +12,5 @@ public struct QBUserPlaylistIds: Codable, Equatable {
     self.playlists = playlists
   }
   
-    public let playlists: [Int]
+    public var playlists: [Int]
 }

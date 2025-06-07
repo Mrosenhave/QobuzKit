@@ -26,6 +26,11 @@ extension QobuzAPI.Endpoints {
         self.body = encodedData
       }
     }
+    public init(trackIds: [Int]) {
+      if let encodedData = try? JSONEncoder().encode(QBTrackIds(trackIds: trackIds)) {
+        self.body = encodedData
+      }
+    }
 
     public typealias Response = QBSearch
 

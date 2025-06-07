@@ -15,8 +15,8 @@ public struct QBUserFavoriteIds: Codable, Equatable {
     self.articles = articles
   }
   
-  public let albums: [String]
-    public let artists: [Int]
-    public let tracks: [Int]
-    public let articles: [String]
+  public var albums: [String]
+    public var artists: [Int]
+    public var tracks: [Int]
+    public var articles: [String]
 }
