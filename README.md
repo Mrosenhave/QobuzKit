@@ -1,3 +1,4 @@
+![QobuzKitIcon](Assets/QobuzKitSmall.png)
 # QobuzKit
 
 A Swift library to interact with the Qobuz Api.
