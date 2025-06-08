@@ -21,10 +21,13 @@ Generating credentials takes some time (usually seconds), and you should therefo
 		print("Error fetching album: \(error)") 
 	}
 # Disclaimer & Legal
-Accessing full tracks **require** a **paid** subscription.
+Accessing full tracks **require** a **paid** Qobuz subscription.
 
 QobuzKit does not contain any private api app ids or secrets. Only code to dynamically get them from the publicly available Qobuz web player JavaScript.
 
 QobuzKit is in no way affiliated with [Qobuz](https://www.qobuz.com).
 
 By interacting with the Qobuz Api you are agreeing to it's [Terms of Use](http://static.qobuz.com/apps/api/QobuzAPI-TermsofUse.pdf).
+
+# License
+QobuzKit is available under the [MIT license](LICENSE).
