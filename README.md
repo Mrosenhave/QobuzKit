@@ -3,6 +3,14 @@
 
 A Swift library to interact with the Qobuz Api.
 
+## Installation
+Install using Swift Package Manager (SPM).
+
+1. Open your project in Xcode.
+2. Select **File > Add Package Dependency...**.
+3. Enter `https://github.com/Mrosenhave/QobuzKit.git`.
+4. Configure the version requirements and click **Add Package**.
+
 ## Usage
 
 ### Setup
