@@ -39,7 +39,7 @@ public struct QBTrack: Codable, Hashable, QBContent {
   }
   
   public static func == (lhs: QBTrack, rhs: QBTrack) -> Bool {
-        return lhs.id == rhs.id
+    return lhs.id == rhs.id && lhs.playlistTrackId == rhs.playlistTrackId
     }
     
   public func hash(into hasher: inout Hasher) {

@@ -9,6 +9,7 @@ import Foundation
 
 public enum QBReleaseType: String, Codable {
     case album
+    case awardedReleases
     case bestof
     case single
     case compilation
