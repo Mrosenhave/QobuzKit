@@ -18,7 +18,7 @@ extension QobuzAPI.Endpoints {
    - Parameter limit: Maximum number of results (default: 50, max: 500)
    - Parameter offset: Offset of first result (default: 0)
    
-   - Returns: A QBSearch object with query and articles. **Not impemented yet!**
+   - Returns: A QBSearch object with query and articles.
   */
   public struct ArticleSearch: Endpoint {
     public init(

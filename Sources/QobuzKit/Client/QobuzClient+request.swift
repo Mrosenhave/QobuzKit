@@ -1,5 +1,5 @@
 //
-//  NetworkManager.swift
+//  QobuzClient+request.swift
 //  QobuzKit
 //
 //  Created by Markus Rosenhave on 21/02/2025.
