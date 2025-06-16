@@ -3,6 +3,13 @@
 
 A Swift library to interact with the Qobuz Api.
 
+## Requirements
+- iOS 16.0+
+- macOS 13.0+
+- tvOS 16.0+
+- watchOS 9.0+
+- visionOS 1.0+
+
 ## Installation
 Install using Swift Package Manager (SPM).
 
