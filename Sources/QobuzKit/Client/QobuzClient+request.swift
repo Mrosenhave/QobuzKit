@@ -20,7 +20,7 @@ extension QobuzClient {
     if let body = endpoint.body {
       request.httpMethod = "POST"
       request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-      request.httpBody = endpoint.body
+      request.httpBody = body
     } else {
       request.httpMethod = "GET"
     }
