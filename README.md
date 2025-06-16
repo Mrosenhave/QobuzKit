@@ -6,20 +6,26 @@ A Swift library to interact with the Qobuz Api.
 ## Usage
 
 ### Setup
-	await  QobuzClient.shared.generateCredentials()
+```swift
+await  QobuzClient.shared.generateCredentials()
+```
 
 Generating credentials takes some time (usually seconds), and you should therefore store the generated credentials securely using Keychain and set them again during app startup.
 
-	QobuzClient.shared.setCredentials(appId: appId, appSecret: appSecret)
+```swift
+QobuzClient.shared.setCredentials(appId: appId, appSecret: appSecret)
+```
 
 ### Making a request
-	let endpoint = QobuzAPI.Endpoints.Album(albumId: albumID, extra: [.albumsSameArtist, .trackIds])
-    do {
-	    let album: QBAlbum = try await QobuzClient.shared.request(endpoint)
-	    print("Fetched album: \(album.title)") 
-	} catch { 
-		print("Error fetching album: \(error)") 
-	}
+```swift
+let endpoint = QobuzAPI.Endpoints.Album(albumId: albumID, extra: [.albumsSameArtist, .trackIds])
+do {
+	let album: QBAlbum = try await QobuzClient.shared.request(endpoint)
+	print("Fetched album: \(album.title)") 
+} catch { 
+	print("Error fetching album: \(error)") 
+}
+```
 # Disclaimer & Legal
 Accessing full tracks **require** a **paid** Qobuz subscription.
 
