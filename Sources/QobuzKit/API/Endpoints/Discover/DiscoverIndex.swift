@@ -26,12 +26,13 @@ extension QobuzAPI.Endpoints {
         .init(name: QobuzAPI.Parameters.genreId(), value: genreIds.map({String($0)}).joined(separator: ","))
       ]
     }
+    public init() {}
 
     public typealias Response = QBDiscover
 
     public let path: String = "discover/index"
 
-    public var parameters: [URLQueryItem]
+    public var parameters = [URLQueryItem]()
 
     public enum favoriteType: String {
       case album
